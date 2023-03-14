@@ -9,13 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            Color(.black)
+                .ignoresSafeArea()
+            VStack{
+                Image("Eldrazi")
+                    .resizable()
+                    .cornerRadius(13)
+                    .aspectRatio(contentMode: .fit)
+                    .padding(10)
+                Text("Bienvenido a la mejor APP de comander")
+                    .font(.title3).fontWeight(.semibold).foregroundColor(Color.white)
+//                Boton instanciado con closure
+                Button("Boton", action: {
+                    print("Click")
+                } )
+//                Boton con trailing closure
+                Button("Boton"){
+                    print("Click")
+                }
+//                Boton con label view
+                Button {
+                    print("Clickity")
+                } label: {
+                    Image("Eldrazi")
+                }
+
+            }
         }
-        .padding()
+    
     }
 }
 
