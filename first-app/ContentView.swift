@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var life = 0
     var body: some View {
         ZStack{
             Color(.black)
@@ -15,25 +16,32 @@ struct ContentView: View {
             VStack{
                 Image("Eldrazi")
                     .resizable()
-                    .cornerRadius(13)
                     .aspectRatio(contentMode: .fit)
                     .padding(10)
+                    .clipShape(Circle())
+                    .overlay{
+                        Circle().stroke(.white, lineWidth: 4)
+                    }
                 Text("Bienvenido a la mejor APP de comander")
                     .font(.title3).fontWeight(.semibold).foregroundColor(Color.white)
 //                Boton instanciado con closure
-                Button("Boton", action: {
-                    print("Click")
+                Button("+", action: {
+                    life = life + 1;
+                } )
+                Text("Tienes \(life) vidas").foregroundColor(.white)
+                Button("-", action: {
+                    life = life - 1;
                 } )
 //                Boton con trailing closure
-                Button("Boton"){
-                    print("Click")
-                }
+//                Button("Boton"){
+//                    print("Click")
+//                }
 //                Boton con label view
-                Button {
-                    print("Clickity")
-                } label: {
-                    Image("Eldrazi")
-                }
+//                Button {
+//                    print("Clickity")
+//                } label: {
+//                    Image("Eldrazi")
+//                }
 
             }
         }
